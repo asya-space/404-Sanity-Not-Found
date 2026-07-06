@@ -1,14 +1,60 @@
 :root {
     --full: 100%;
     --ctr: center;
+    --gap: 4rem;
+    --fifty: 50px;
+    --white: #ffffff;
+}
+
+@font-face {
+    font-family: 'Geist Pixel';
+    src: url(../fonts/GeistPixel-Regular-VariableFont_ELSH.ttf) format('ttf'),
+         url(../fonts/GeistPixel-Regular-VariableFont_ELSH.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Black Ops One'; /* system-ui */
+    src: url(../fonts/BlackOpsOne-Regular.ttf) format('ttf'),
+         url(../fonts/BlackOpsOne-Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Code Pro'; /* monospace */
+    src: url(../fonts/SourceCodePro-VariableFont_wght.ttf) format('ttf'),
+         url(../fonts/SourceCodePro-VariableFont_wght.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 * {
     box-sizing: border-box;
 }
 
-h1, p {
+h1, h2, p {
     margin: 0;
+}
+
+h2 {
+    font-family: 'Black Ops One', system-ui;
+    font-weight: 500;
+}
+
+p {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
 }
 
 ul {
@@ -22,13 +68,13 @@ li {
 
 body {
     margin: 0 auto;
-    max-width: 1280px;
     height: var(--full);
+    color: var(--white);
 }
 
 .bg-container {
     position: relative;
-    min-height: 100vw;
+    height: 100vw;
     overflow: hidden;
     background-color: #000000;
 }
@@ -54,26 +100,23 @@ main {
 }
 
 .container {
-    padding: 50px;
+    padding: var(--fifty);
     max-width: var(--full);
     z-index: 2;
 }
 
 .title {
-    margin-bottom: 30px;
-    color: #fff;
+    margin-bottom: var(--fifty);
+    font-family: 'Geist Pixel', sans-serif;
+    font-size: var(--fifty);
     text-align: var(--ctr);
 }
 
-.wrapper {
-    width: min(90vw, 1200px);
-}
-
-.slider-list {
+.track {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1;
-    gap: 1.5rem;
+    grid-auto-flow: column;
+    gap: var(--gap);
+    grid-auto-columns: calc((var(--full) - 2 * var(--gap)) / 3);
 }
 
 .slider-item {
